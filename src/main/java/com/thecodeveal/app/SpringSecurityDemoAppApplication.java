@@ -32,19 +32,19 @@ public class SpringSecurityDemoAppApplication {
 		
 		List<Authority> authorityList=new ArrayList<>();
 		
-		authorityList.add(createAuthority("USER","User role"));
-		authorityList.add(createAuthority("ADMIN","Admin role"));
-		authorityList.add(createAuthority("MASTER-ADMIN","Master Admin role"));
-
-		User user=new User();
+//		authorityList.add(createAuthority("USER","User role"));
+//		authorityList.add(createAuthority("ADMIN","Admin role"));
+//		authorityList.add(createAuthority("MASTER-ADMIN","Master Admin role"));
+//
+//		User user=new User();
+//
+//		user.setUserName("allanz");
+//
+//		user.setPassword(passwordEncoder.encode("allan"));
+//		user.setEnabled(true);
+//		user.setAuthorities(authorityList);
 		
-		user.setUserName("allanz");
-		
-		user.setPassword(passwordEncoder.encode("allan"));
-		user.setEnabled(true);
-		user.setAuthorities(authorityList);
-		
-		userDetailsRepository.save(user);
+//		userDetailsRepository.save(user);
 		
 		
 		
