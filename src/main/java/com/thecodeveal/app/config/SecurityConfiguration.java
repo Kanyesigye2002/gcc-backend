@@ -67,7 +67,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.exceptionHandling()
 				.authenticationEntryPoint(authenticationEntryPoint).and()
 				.authorizeRequests((request) -> request
-						.antMatchers("/h2-console/**", "/api/v1/auth/login", "/api/gcc/v1/**")
+						.antMatchers("/h2-console/**", "/api/v1/auth/login", "/api/gcc/v1/**", "/api/v1/auth/userinfo")
 						.permitAll()
 						.antMatchers(HttpMethod.OPTIONS, "/**")
 						.permitAll()
