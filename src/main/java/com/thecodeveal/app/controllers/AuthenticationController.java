@@ -4,6 +4,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.Principal;
 import java.security.spec.InvalidKeySpecException;
 
+import com.thecodeveal.app.repository.UserDetailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -34,7 +35,10 @@ public class AuthenticationController {
 
 	@Autowired
 	JWTTokenHelper jWTTokenHelper;
-	
+
+	@Autowired
+	UserDetailsRepository userDetailsRepository;
+
 	@Autowired
 	private UserDetailsService userDetailsService;
 
@@ -61,12 +65,14 @@ public class AuthenticationController {
 		User userObj=(User) userDetailsService.loadUserByUsername(user.getName());
 		
 		UserInfo userInfo=new UserInfo();
+		userInfo.setUserName(userObj.getUserName());
 		userInfo.setRoles(userObj.getAuthorities().toArray());
-		
-		
+
 		return ResponseEntity.ok(userInfo);
-		
-		
-		
+	}
+
+	@GetMapping("/auth/allusers")
+	public ResponseEntity<?> getUsers(Principal user){
+		return ResponseEntity.ok(userDetailsRepository.findAll());
 	}
 }

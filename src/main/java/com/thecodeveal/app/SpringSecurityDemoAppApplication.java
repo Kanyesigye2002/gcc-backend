@@ -38,9 +38,9 @@ public class SpringSecurityDemoAppApplication {
 
 		User user=new User();
 
-		user.setUserName("Jordan");
+		user.setUserName("Allan");
 
-		user.setPassword(passwordEncoder.encode("jordan123"));
+		user.setPassword(passwordEncoder.encode("Allan2002."));
 		user.setEnabled(true);
 		user.setAuthorities(authorityList);
 		
