@@ -44,10 +44,7 @@ public class SpringSecurityDemoAppApplication {
 		user.setEnabled(true);
 		user.setAuthorities(authorityList);
 		
-		userDetailsRepository.save(user);
-		
-		
-		
+//		userDetailsRepository.save(user);
 	}
 	
 	
