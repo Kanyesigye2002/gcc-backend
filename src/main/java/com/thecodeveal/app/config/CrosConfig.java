@@ -15,7 +15,7 @@ public class CrosConfig {
             public void addCorsMappings(CorsRegistry registry) {
                 registry
                         .addMapping("/**")
-                        .allowedOrigins("*")
+                        .allowedOrigins("https://main.d2ia5wwug43lbw.amplifyapp.com/")
                         .allowedMethods("*")
                         .allowedHeaders("*");
             }
