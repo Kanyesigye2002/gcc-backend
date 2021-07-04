@@ -53,22 +53,27 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
+
+		http.csrf().disable().cors().and().headers().frameOptions().disable();
 		
 		http
-				.csrf().disable().cors()
-				.and()
-//				.cors().disable().cors()
+//				.csrf().disable()
 //				.and()
+				.cors().disable().cors()
+				.and()
 				.headers().frameOptions().disable()
 				.and()
 				.sessionManagement()
 				.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 				.and()
 				.exceptionHandling()
-				.authenticationEntryPoint(authenticationEntryPoint).and()
+				.authenticationEntryPoint(authenticationEntryPoint)
+				.and()
 				.authorizeRequests((request) -> request
-						.antMatchers("/h2-console/**", "/api/v1/auth/login", "/api/gcc/v1/**")
-						.permitAll()
+						.antMatchers(HttpMethod.GET, "/api/v1/auth/login", "/api/gcc/v1/**").permitAll()
+						.antMatchers(HttpMethod.PUT, "/api/v1/auth/login", "/api/gcc/v1/**").permitAll()
+						.antMatchers(HttpMethod.POST, "/api/v1/auth/login", "/api/gcc/v1/**").permitAll()
+						.antMatchers(HttpMethod.DELETE, "/api/v1/auth/login", "/api/gcc/v1/**").permitAll()
 						.antMatchers(HttpMethod.OPTIONS, "/**")
 						.permitAll()
 						.anyRequest()
