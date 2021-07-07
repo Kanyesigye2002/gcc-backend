@@ -4,10 +4,12 @@ import com.thecodeveal.app.gcc.Models.*;
 import com.thecodeveal.app.gcc.Repository.*;
 import com.thecodeveal.app.gcc.dto.GalleryRequest;
 import com.thecodeveal.app.gcc.exceptions.ResourceNotFoundException;
+import com.thecodeveal.app.repository.UserDetailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,10 +36,13 @@ public class GccController {
 
     private DonateCreditCardRepository donateCreditCardRepository;
 
+    UserDetailsRepository userDetailsRepository;
+
     @Autowired
-    public GccController(GalleryCategoryRepository galleryCategoryRepository, EventRepository eventRepository, HomeRepository homeRepository, SermonRepository sermonRepository, ContactRepository contactRepository, DonateMobileMoneyRepository donateMobileMoneyRepository, DonateCreditCardRepository donateCreditCardRepository) {
+    public GccController(UserDetailsRepository userDetailsRepository, GalleryCategoryRepository galleryCategoryRepository, EventRepository eventRepository, HomeRepository homeRepository, SermonRepository sermonRepository, ContactRepository contactRepository, DonateMobileMoneyRepository donateMobileMoneyRepository, DonateCreditCardRepository donateCreditCardRepository) {
 
         this.galleryCategoryRepository = galleryCategoryRepository;
+        this.userDetailsRepository = userDetailsRepository;
         this.eventRepository = eventRepository;
         this.homeRepository = homeRepository;
         this.sermonRepository = sermonRepository;
@@ -156,4 +161,27 @@ public class GccController {
         return ResponseEntity.ok(galleryCategory);
     }
 
+    //Save New Message
+    @PostMapping("message")
+    public ContactUs createMessage(@RequestBody ContactUs message) {
+        return this.contactRepository.save(message);
+    }
+
+
+    //Save New Donations Mobile Money
+    @PostMapping("give")
+    public DonateMobileMoney createDonateM(@RequestBody DonateMobileMoney donateMobileMoney) {
+        return this.donateMobileMoneyRepository.save(donateMobileMoney);
+    }
+
+    //Save New Donations Credit Card
+    @PostMapping("give-credit-card")
+    public DonateCreditCard createDonateCreditCard(@RequestBody DonateCreditCard donateCreditCard) {
+        return this.donateCreditCardRepository.save(donateCreditCard);
+    }
+
+    @GetMapping("users")
+    public ResponseEntity<?> getUsers(){
+        return ResponseEntity.ok(userDetailsRepository.findAll());
+    }
 }

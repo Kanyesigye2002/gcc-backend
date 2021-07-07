@@ -42,6 +42,18 @@ public class User implements UserDetails {
 	@Column(name = "phone_number")
 	private String phoneNumber;
 
+	@Column(name = "first_name")
+	private String firstName;
+
+	@Column(name = "second_name")
+	private String secondName;
+
+	@Column(name = "image")
+	private String image;
+
+	@Column(name = "title")
+	private String title;
+
 	@Column(name = "enabled")
 	private boolean enabled=true;
 
@@ -100,10 +112,6 @@ public class User implements UserDetails {
 		this.id = id;
 	}
 
-	public String getUserName() {
-		return userName;
-	}
-
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
@@ -143,7 +151,36 @@ public class User implements UserDetails {
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
-	
-	
 
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getSecondName() {
+		return secondName;
+	}
+
+	public void setSecondName(String secondName) {
+		this.secondName = secondName;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
 }

@@ -17,6 +17,8 @@ public class DonateMobileMoney {
     private String number;
     @Column(name = "amount")
     private String amount;
+    @Column(name = "currency")
+    private String currency;
     @Column(name = "success")
     private Boolean success;
 
@@ -24,8 +26,9 @@ public class DonateMobileMoney {
 
     }
 
-    public DonateMobileMoney(String name, String email, String number, String amount, Boolean success) {
+    public DonateMobileMoney(String name, String currency, String email, String number, String amount, Boolean success) {
         this.name = name;
+        this.currency = currency;
         this.email = email;
         this.number = number;
         this.amount = amount;
@@ -78,5 +81,13 @@ public class DonateMobileMoney {
 
     public void setSuccess(Boolean success) {
         this.success = success;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 }
