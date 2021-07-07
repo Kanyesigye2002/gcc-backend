@@ -4,6 +4,7 @@ import com.google.errorprone.annotations.Var;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "events")
@@ -24,6 +25,10 @@ public class Event {
     private String description;
     @Column(name = "filename")
     private String fileName;
+
+    @OneToMany(targetEntity = Images.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "image_event_key",referencedColumnName = "id")
+    private List<Images> images;
 
     public Event() {
 
