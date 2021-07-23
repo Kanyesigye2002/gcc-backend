@@ -34,12 +34,14 @@ public class Event {
 
     }
 
-    public Event(String title, String host, String date, String description, String fileName) {
+    public Event(long id, String title, String host, String date, String description, String fileName, List<Images> images) {
+        this.id = id;
         this.title = title;
         this.host = host;
         this.date = date;
         this.description = description;
         this.fileName = fileName;
+        this.images = images;
     }
 
     public long getId() {
@@ -88,5 +90,13 @@ public class Event {
 
     public void setFileName(String fileName) {
         this.fileName = fileName;
+    }
+
+    public List<Images> getImages() {
+        return images;
+    }
+
+    public void setImages(List<Images> images) {
+        this.images = images;
     }
 }
