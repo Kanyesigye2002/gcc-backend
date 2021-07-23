@@ -57,6 +57,10 @@ public class RootController {
     @Autowired
     private GalleryRepository galleryRepository;
 
+
+    @Autowired
+    private ImagesRepository imageRepository;
+
     @Autowired
     private SermonRepository sermonRepository;
 
@@ -186,10 +190,10 @@ public class RootController {
     public Map<String, Boolean> deleteImage(@PathVariable(value = "id") Long imageID)
             throws ResourceNotFoundException {
 
-        Gallery image = galleryRepository.findById(imageID)
+        Images image = imageRepository.findById(imageID)
                 .orElseThrow(() -> new ResourceNotFoundException("Event not Found for id: " + imageID));
 
-        this.galleryRepository.delete(image);
+        this.imageRepository.delete(image);
 
         Map<String, Boolean> response = new HashMap<>();
         response.put("deleted" + image.getImage(), Boolean.TRUE);
