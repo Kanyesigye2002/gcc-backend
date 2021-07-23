@@ -86,7 +86,19 @@ public class RootController {
     public Event createEvent(@RequestBody Event event, Object obj) {
         System.out.println(obj);
         System.out.println(event);
-        return this.eventRepository.save(event);
+        Optional<Event> eventOpt = eventRepository.findById(event.getId());
+        if (eventOpt.isPresent() ) {
+            Event event1 = eventOpt.get();
+            event1.setDate(event.getDate());
+            event1.setDescription(event.getDescription());
+            event1.setHost(event.getHost());
+            event1.setTitle(event.getTitle());
+            event1.setFileName(event.getFileName());
+            return this.eventRepository.save(event1);
+        } else {
+            return this.eventRepository.save(event);
+        }
+
     }
 
     @PostMapping("eventd")
