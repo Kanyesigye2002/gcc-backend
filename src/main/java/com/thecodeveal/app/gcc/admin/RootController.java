@@ -180,6 +180,23 @@ public class RootController {
 
     }
 
+
+    //Delete Image
+    @DeleteMapping("gallery/{id}")
+    public Map<String, Boolean> deleteImage(@PathVariable(value = "id") Long imageID)
+            throws ResourceNotFoundException {
+
+        Gallery image = galleryRepository.findById(imageID)
+                .orElseThrow(() -> new ResourceNotFoundException("Event not Found for id: " + imageID));
+
+        this.galleryRepository.delete(image);
+
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("deleted" + image.getImage(), Boolean.TRUE);
+
+        return response;
+    }
+
     //Save Sermon
     @PostMapping("sermons")
     public Sermon createSermon(@RequestBody Sermon sermon) {
