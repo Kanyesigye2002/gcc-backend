@@ -187,7 +187,7 @@ public class RootController {
 
     //Delete Image
     @DeleteMapping("gallery/{id}")
-    public Map<String, Boolean> deleteImage(@PathVariable(value = "id") Long imageID)
+    public String deleteImage(@PathVariable(value = "id") Long imageID)
             throws ResourceNotFoundException {
 
         Images image = imageRepository.findById(imageID)
@@ -198,7 +198,7 @@ public class RootController {
         Map<String, Boolean> response = new HashMap<>();
         response.put("deleted" + image.getImage(), Boolean.TRUE);
 
-        return response;
+        return "deleted " + image.getName();
     }
 
     //Save Sermon
