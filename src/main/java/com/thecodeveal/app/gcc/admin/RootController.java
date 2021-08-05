@@ -35,7 +35,7 @@ class SayHello extends TimerTask {
     }
 }
 
-@CrossOrigin(value = {"http://localhost:3000","https://master.d1zaj6z68k0ehd.amplifyapp.com", "https://gloriousch.org", "https://main.d2ia5wwug43lbw.amplifyapp.com"})
+@CrossOrigin(value = {"http://localhost:3000","https://master.d1zaj6z68k0ehd.amplifyapp.com", "https://gloriousch.org", "https://www.gloriousch.org", "https://main.d2ia5wwug43lbw.amplifyapp.com"})
 //@CrossOrigin(value = "https://gloriousch.herokuapp.com/")
 @RestController
 @RequestMapping("api/gcc/admin/v1/")
