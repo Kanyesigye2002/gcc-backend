@@ -16,7 +16,7 @@ import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
-@CrossOrigin(value = {"http://localhost:3000","https://master.d1zaj6z68k0ehd.amplifyapp.com", "https://gcc-app-ug.herokuapp.com/", "https://main.d2ia5wwug43lbw.amplifyapp.com"})
+@CrossOrigin(value = {"http://localhost:3000","https://master.d1zaj6z68k0ehd.amplifyapp.com", "https://gloriousch.org", "https://main.d2ia5wwug43lbw.amplifyapp.com"})
 //@CrossOrigin(value = "https://gloriousch.herokuapp.com/")
 @RestController
 @RequestMapping("api/gcc/v1")

@@ -35,7 +35,7 @@ class SayHello extends TimerTask {
     }
 }
 
-@CrossOrigin(value = {"http://localhost:3000","https://master.d1zaj6z68k0ehd.amplifyapp.com", "https://gcc-app-ug.herokuapp.com/", "https://main.d2ia5wwug43lbw.amplifyapp.com"})
+@CrossOrigin(value = {"http://localhost:3000","https://master.d1zaj6z68k0ehd.amplifyapp.com", "https://gloriousch.org", "https://main.d2ia5wwug43lbw.amplifyapp.com"})
 //@CrossOrigin(value = "https://gloriousch.herokuapp.com/")
 @RestController
 @RequestMapping("api/gcc/admin/v1/")
@@ -93,6 +93,7 @@ public class RootController {
             event1.setDescription(event.getDescription());
             event1.setHost(event.getHost());
             event1.setTitle(event.getTitle());
+            event1.setImages(event.getImages());
             event1.setFileName(event.getFileName());
             return this.eventRepository.save(event1);
         } else {

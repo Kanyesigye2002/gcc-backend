@@ -29,7 +29,7 @@ import com.thecodeveal.app.requests.AuthenticationRequest;
 import com.thecodeveal.app.responses.LoginResponse;
 import com.thecodeveal.app.responses.UserInfo;
 
-@CrossOrigin(value = {"http://localhost:3000","https://master.d1zaj6z68k0ehd.amplifyapp.com", "https://gcc-app-ug.herokuapp.com/", "https://main.d2ia5wwug43lbw.amplifyapp.com"})
+@CrossOrigin(value = {"http://localhost:3000","https://master.d1zaj6z68k0ehd.amplifyapp.com", "https://gloriousch.org", "https://main.d2ia5wwug43lbw.amplifyapp.com"})
 @RestController
 @RequestMapping("/api/v1")
 public class AuthenticationController {
