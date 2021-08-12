@@ -44,10 +44,10 @@ public class SpringSecurityDemoAppApplication {
 		user.setEnabled(true);
 		user.setAuthorities(authorityList);
 		
-		userDetailsRepository.save(user);
+//		userDetailsRepository.save(user);
 	}
-	
-	
+
+
 	private Authority createAuthority(String roleCode,String roleDescription) {
 		Authority authority=new Authority();
 		authority.setRoleCode(roleCode);
