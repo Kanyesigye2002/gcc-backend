@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/gcc")
+@RequestMapping("/")
 public class AppController {
 
 	@GetMapping
 	public String testApp() {
-		return "Hello Spring Security!";
+		return "Hello Welcome to GCC Api for more access ask the Admins!";
 	}
 
 }

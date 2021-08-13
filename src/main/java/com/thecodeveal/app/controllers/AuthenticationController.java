@@ -111,7 +111,10 @@ public class AuthenticationController {
 
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		user.setEnabled(true);
-		user.setAuthorities(authorityList);
+
+		if (user.getAuthorities() == null) {
+			user.setAuthorities(authorityList);
+		}
 
 		return ResponseEntity.ok(userDetailsRepository.save(user));
 	}
