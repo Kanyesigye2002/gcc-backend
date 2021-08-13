@@ -38,13 +38,15 @@ public class SpringSecurityDemoAppApplication {
 
 		User user=new User();
 
-		user.setUserName("Jordan");
+		user.setUserName("Pr Ssozi");
+		user.setTitle("Senior Administrator");
+		user.setPhoneNumber("0702650033");
 
-		user.setPassword(passwordEncoder.encode("Jordan2002."));
+		user.setPassword(passwordEncoder.encode("holyspirit123"));
 		user.setEnabled(true);
 		user.setAuthorities(authorityList);
 		
-//		userDetailsRepository.save(user);
+		userDetailsRepository.save(user);
 	}
 
 
